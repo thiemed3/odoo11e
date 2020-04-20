@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_charges_form" model="ir.ui.view">
+            <field name="name">Charges Form</field>
+            <field name="model">charges</field>
+            <field name="arch" type="xml">
+                <form string="Charges">
+                    <header>
+                        <button name="load_products_and_inventary" string="Load Products and Inventory" type="object"/>
+                        <button name="load_products" string="Load Products" type="object"/>
+                        <button name="load_inventory" string="Load Inventory" type="object"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4">
+                            <group colspan="1">
+                                <field name="name"/>
+                                <field name="b_products_inventary"/>
+                                <field name="status_products" readonly="True"/>
+                                <field name="status_inventory_lots" readonly="True"/>
+                                <field name="status_inventory_series" readonly="True"/>
+                            </group>
+                        </group>
+                        <!--
+                        <notebook>
+                            <page string="Textos">
+                                <group colspan="4">
+                                    <group colspan="2">
+                                        <field name="bio"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_charges_tree" model="ir.ui.view">
+            <field name="name">Charges Tree</field>
+            <field name="model">charges</field>
+            <field name="arch" type="xml">
+                <tree string="Charges" toolbar="1">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_charges_search" model="ir.ui.view">
+            <field name="name">Charges Search</field>
+            <field name="model">charges</field>
+            <field name="arch" type="xml">
+                <search string="Search Charges">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_charges" model="ir.actions.act_window">
+            <field name="name">Charges</field>
+            <field name="res_model">charges</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <!--<field name="view_id" ref="view_clubs_tree"/>
+            <field name="search_view_id" ref="view_clubs_search"/>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                New Charge.
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_charges_admin" name="Loads" sequence="50" groups="stock.group_stock_manager" />
+        <menuitem id="menu_charges_admin_one" parent="menu_charges_admin" name="Loads" sequence="50" groups="stock.group_stock_manager" />
+        <menuitem id="menu_charges_admin_pro_inv" action="action_charges" name="Load Products and Inventary" parent="menu_charges_admin_one" sequence="50" groups="stock.group_stock_manager" />
+        
+    </data>
+</odoo>

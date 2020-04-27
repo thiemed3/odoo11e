@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="as_stock_lot_tree_view">
+            <field name="name">as.stock.production.lot.tree</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                   <field name="product_qty"/>
+                   <field name="removal_date"/>
+                </xpath>                
+                <xpath expr="//field[@name='product_id']" position="after">
+                   <field name="as_cantidad" />
+                </xpath>
+            </field>
+        </record>        
+        <record model="ir.ui.view" id="as_stock_lot_form_view">
+            <field name="name">as.stock.production.lot.form</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                   <field name="as_cantidad" force_save="1" invisible="True"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

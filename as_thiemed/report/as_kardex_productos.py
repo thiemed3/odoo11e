@@ -28,6 +28,11 @@ class as_kardex_productos_excel(models.AbstractModel):
             dict_almacen = []
             dict_almacen.append(str(dict_aux).replace('[','(').replace(']',')'))
 
+        filtro_fecha_inicial=''
+        if data['form']['as_fecha_inicial']:
+            self.env['ir.config_parameter'].sudo().set_param('res_config_settings.as_fecha_invenatario',str(data['form']['as_fecha_inicial']))
+            filtro_fecha_inicial = """AND sm.date::date >= '"""+str(data['form']['as_fecha_inicial'])+"""'"""
+
         dict_productos = []
         if data['form']['as_productos']:
             for line in data['form']['as_productos']:
@@ -71,16 +76,19 @@ class as_kardex_productos_excel(models.AbstractModel):
 
         # Aqui definimos en los anchos de columna
         sheet.set_column('A:A',15, letter1)
-        sheet.set_column('B:B',30, letter1)
+        sheet.set_column('B:B',15, letter1)
         sheet.set_column('C:C',15, letter1)
-        sheet.set_column('D:D',18, letter1)
-        sheet.set_column('E:E',15, letter1)
-        sheet.set_column('F:F',15, letter1)
+        sheet.set_column('D:D',15, letter1)
+        sheet.set_column('E:E',25, letter1)
+        sheet.set_column('F:F',25, letter1)
         sheet.set_column('G:G',15, letter1)
-        sheet.set_column('H:H',15, letter1)
+        sheet.set_column('H:H',25, letter1)
         sheet.set_column('I:I',15, letter1)
         sheet.set_column('J:J',15, letter1)
         sheet.set_column('K:K',15, letter1)
+        sheet.set_column('L:L',15, letter1)
+        sheet.set_column('M:M',15, letter1)
+        sheet.set_column('N:N',15, letter1)
 
         # Titulos, subtitulos, filtros y campos del reporte
         sheet.merge_range('A1:K1', 'KARDEX DE PRODUCTOS FISICO VALORADO', titulo1)
@@ -206,6 +214,7 @@ class as_kardex_productos_excel(models.AbstractModel):
                         AND (sm.location_id IN """+str(almacen)+""" or sm.location_dest_id IN """+str(almacen)+""")
                         AND pp.id = """+str(producto[0])+"""
                         AND sm.date::date <= '"""+str(data['form']['end_date'])+"""'
+                        """+str(filtro_fecha_inicial)+"""
                     ORDER BY sm.date asc, sp.date_done asc
                 """)
                 #_logger.debug(query_movements)
@@ -432,5 +441,3 @@ class as_kardex_productos_excel(models.AbstractModel):
         # dosificacion = self.env['qr.code'].search([('declarado','=',False)]).id
         # account_invoice_pool = self.pool.get('account.invoice')
         # record_counter = 0
-
-                

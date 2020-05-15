@@ -10,7 +10,8 @@ from datetime import datetime, timedelta
 class as_helpdesk_notify(models.Model):
     _inherit = 'stock.production.lot'
 
-    as_cantidad = fields.Char(string='Cantidad lote',compute='_get_cantidad_lote',store=True)
+    as_cantidad = fields.Char(string='Cantidad lote',compute='_get_cantidad_lote')
+    product_qty = fields.Float('Quantity', compute='_product_qty',store=True)
 
     @api.multi
     def _get_cantidad_lote(self):

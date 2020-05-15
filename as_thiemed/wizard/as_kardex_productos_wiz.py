@@ -7,6 +7,13 @@ class as_kardex_productos_wiz(models.TransientModel):
     _name="as.kardex.productos.wiz"
     _description = "Warehouse Reports by AhoraSoft"
     
+    #numeracion para ventas
+    @api.multi
+    def _get_default_fecha_inicial(self):
+        fecha = ''
+        fecha = self.env['ir.config_parameter'].sudo().get_param('res_config_settings.as_fecha_invenatario')
+        return fecha
+
     start_date = fields.Date('Desde la Fecha', default=fields.Date.context_today)
     end_date = fields.Date('Hasta la Fecha', default=fields.Date.context_today)
     as_almacen = fields.Many2many('stock.location', string="Almacen", domain="[('usage', '=', 'internal')]")
@@ -14,6 +21,7 @@ class as_kardex_productos_wiz(models.TransientModel):
     category_ids = fields.Many2many('product.category', string="Categoria de Productos")
     as_consolidado = fields.Boolean(string="Consolidado", default=False)
     as_categ_levels = fields.Integer(string="Niveles de categorias", help=u"Debe ser un entero igual o mayor a 1", default=2)
+    as_fecha_inicial = fields.Date('Inicio Movimiento de Inventario', default=_get_default_fecha_inicial)
 
     @api.multi
     def export_xls(self):

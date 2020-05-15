@@ -15,6 +15,7 @@
                     <field name="as_categ_levels"/>
                     <field name="category_ids" widget="many2many_tags"/>
                     <field name="as_consolidado"/>
+                    <field name="as_fecha_inicial"/>
                 </group>
                 <footer>
                     <!-- <button name="imprimir_kardex_productos_pdf" string="Exportar a PDF" type="object" class="btn-primary"/> -->

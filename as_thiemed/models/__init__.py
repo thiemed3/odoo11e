@@ -1,2 +1,3 @@
 # -*- coding: utf-8 -*-
-# from . import as_helpdesk_notify
+from . import as_res_config
+from . import as_stock_lot

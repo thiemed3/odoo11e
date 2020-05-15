@@ -2,7 +2,7 @@
 {
     'name': "Ahorasoft Thiemed Project",
     'category': 'Thiemed',
-    'version': '1.0.4',
+    'version': '1.0.7',
     'author': "Ahorasoft",
     'website': 'http://www.ahorasoft.com',
     "support": "soporte@ahorasoft.com",
@@ -13,12 +13,15 @@
     """,
     "images": [],
     "depends": [
-        "base","stock","product","report_xlsx","account"
+        "base","stock","product","report_xlsx","account",'l10n_cl_balance','account'
     ],
     'data': [
         'security/ir.model.access.csv',
         'wizard/as_kardex_productos_wiz.xml',
-        'wizard/as_cambiador_factura.xml'
+        'wizard/as_cambiador_factura.xml',
+        'views/as_res_config.xml',
+        'views/as_stock_picking.xml',
+        'views/as_production_lot_tree.xml',
     ],
     'qweb': [
     ],

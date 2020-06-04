@@ -19,9 +19,13 @@
             <field name="inherit_id" ref="stock.vpicktree" />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_id']" position="after">
-                   <field name="date_done" string="Fecha Documento"/>
+                   <field name="date_done_doc" string="Fecha Documento"/>
+                </xpath>
+                  <xpath expr="//field[@name='name']" position="after">
+                   <field name="referencia" string="Referencia de la Transferencia"/>
                 </xpath>
             </field>
         </record>
+        
     </data>
 </odoo>

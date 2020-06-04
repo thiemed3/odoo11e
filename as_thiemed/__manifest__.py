@@ -2,7 +2,7 @@
 {
     'name': "Ahorasoft Thiemed Project",
     'category': 'Thiemed',
-    'version': '1.0.7',
+    'version': '1.0.8',
     'author': "Ahorasoft",
     'website': 'http://www.ahorasoft.com',
     "support": "soporte@ahorasoft.com",

@@ -2,7 +2,7 @@
 {
     'name': "Ahorasoft Thiemed Project",
     'category': 'Thiemed',
-    'version': '1.0.7',
+    'version': '1.0.9',
     'author': "Ahorasoft",
     'website': 'http://www.ahorasoft.com',
     "support": "soporte@ahorasoft.com",
@@ -22,6 +22,7 @@
         'views/as_res_config.xml',
         'views/as_stock_picking.xml',
         'views/as_production_lot_tree.xml',
+        'views/as_pricelist_item.xml',
     ],
     'qweb': [
     ],

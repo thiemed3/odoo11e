@@ -19,5 +19,5 @@ class stockpicking(models.Model):
             pick.referencia = reference
             pick.date_done_doc = pick.date_done
 
-    referencia = fields.Char(string='Referencia Tranferencia',compute='_get_reference',store=True)
-    date_done_doc = fields.Datetime('Fecha documento', copy=False, compute='_get_reference', help="Completion Date of Transfer",store=True)
+    referencia = fields.Char(string='Referencia Tranferencia',compute='_get_reference')
+    date_done_doc = fields.Datetime('Fecha documento', copy=False, compute='_get_reference', help="Completion Date of Transfer")

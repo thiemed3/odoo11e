@@ -365,13 +365,13 @@ class ConsumoFolios(models.Model):
             self.sec_envio = (consumos+1)
         self._resumenes()
 
-    @api.multi
+    # @api.multi
     def copy(self, default=None):
         res = super(ConsumoFolios, self).copy(default)
         res.set_data()
         return res
 
-    @api.multi
+    # @api.multi
     def unlink(self):
         for libro in self:
             if libro.state not in ('draft', 'cancel'):
@@ -538,7 +538,7 @@ version="1.0">
             'dte_resolution_number': comp_id.dte_resolution_number}
         return resolution_data
 
-    @api.multi
+    # @api.multi
     def get_xml_file(self):
         return {
             'type' : 'ir.actions.act_url',
@@ -560,7 +560,7 @@ version="1.0">
         sha1 = hashlib.new('sha1', data)
         return sha1.digest()
 
-    @api.multi
+    # @api.multi
     def validar_consumo_folios(self):
         self._validar()
         consumos = self.search([
@@ -898,7 +898,7 @@ version="1.0">
         self.sii_xml_request = envio_dte
         return envio_dte, doc_id
 
-    @api.multi
+    # @api.multi
     def do_dte_send_consumo_folios(self):
         if self.state not in ['NoEnviado', 'Rechazado']:
             raise UserError("El Libro  ya ha sido enviado")
@@ -939,7 +939,7 @@ version="1.0">
             status = {'warning':{'title':_('Error RCT'), 'message': _(resp['SII:RESPUESTA']['SII:RESP_HDR']['GLOSA'])}}
         return status
 
-    @api.multi
+    # @api.multi
     def ask_for_dte_status(self):
         if self.state == 'Enviado':
             status = self._get_send_status()

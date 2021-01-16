@@ -16,7 +16,7 @@ Libros de Compra y Venta para Chile.
             'l10n_cl_fe',
         ],
     'data': [
-            'views/export.xml',
+            # 'views/export.xml',
 
     ],
     'installable': True,

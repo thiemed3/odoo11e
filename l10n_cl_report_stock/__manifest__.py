@@ -14,9 +14,9 @@ Reporte: Guia de Despacho normativas chilenas.
         'l10n_cl_stock_picking',
     ],
     'data': [
-        'data/report.xml',
-        'views/layout.xml',
-        'views/report_stock_picking.xml',
+        # 'data/report.xml',
+        # 'views/layout.xml',
+        # 'views/report_stock_picking.xml',
     ],
     'installable': True,
     'auto_install': False,

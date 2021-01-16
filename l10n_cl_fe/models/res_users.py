@@ -148,11 +148,11 @@ class ResUsers(models.Model):
     cert_owner_id = fields.Many2one('res.users', string='Certificate Owner',
                                     index=True, ondelete='cascade')
 
-    @api.multi
+    # @api.multi
     def action_clean1(self):
         self.write(zero_values)
 
-    @api.multi
+    # @api.multi
     def action_process(self):
         filecontent = base64.b64decode(self.key_file)
         self.load_cert_pk12(filecontent)

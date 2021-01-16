@@ -26,7 +26,7 @@ class webservices_generic(models.Model):
     _name = "webservices.server"
 
 
-    @api.multi
+    # # @api.multi
     def action_test_connection(self):
         self.ensure_one()
         rr = self.generic_connection()

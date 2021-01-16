@@ -52,8 +52,8 @@
     'currency': "EUR",
     'website': 'http://www.browseinfo.in',
     'depends': ['sale','purchase','stock',],
-    'data': ['picking_view.xml'
-    ],
+    # 'data': ['picking_view.xml'
+    # ],
     'demo': [],
     'js': [],
     'qweb': [],

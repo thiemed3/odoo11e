@@ -19,8 +19,8 @@ class AccountPayment(models.Model):
         help="This account will be used instead of the default one as the receivable account for the current partner")
 
 
-    @api.one
-    @api.depends('invoice_ids', 'payment_type', 'partner_type', 'partner_id')
+    # @api.one
+    @api.depends('payment_type', 'partner_type', 'partner_id')
     def _compute_destination_account_id(self):
         """ inherited and overwrite original method
             Add the condition that evaluates if exists account advance and it placed as has account destiny if condition applied.

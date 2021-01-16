@@ -11,7 +11,7 @@ class LandedCost(models.Model):
         'account.analytic.tag', string="Analytic tag",
         help="Analytic tag associated with the invoice. E.g. DIN1")
 
-    @api.multi
+    # @api.multi
     def search_tags(self):
         
         if self.cost_lines:
@@ -82,7 +82,7 @@ class AdjustmentLines(models.Model):
         compute='_compute_new_cost',
         help="Former Cost (Per unit) + Additional Landed Cost / Quantity")
 
-    @api.multi
+    # @api.multi
     def _compute_new_cost(self):
         """Computes the new cost amount"""
         for record in self:

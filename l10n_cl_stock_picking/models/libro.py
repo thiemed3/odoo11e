@@ -95,7 +95,7 @@ Extensión del modelo de datos para contener parámetros globales necesarios
 class LibroGuia(models.Model):
     _name = "stock.picking.book"
 
-    @api.multi
+    # @api.multi
     def unlink(self):
         for libro in self:
             if libro.state not in ('draft', 'cancel'):
@@ -294,7 +294,7 @@ version="1.0">
             'dte_resolution_number': comp_id.dte_resolution_number}
         return resolution_data
 
-    @api.multi
+    # @api.multi
     def send_xml_file(self, envio_dte=None, file_name="envio",company_id=False):
         signature_d = self.env.user.get_digital_signature(company_id)
         if not signature_d:
@@ -341,7 +341,7 @@ version="1.0">
             retorno.update({'sii_result': 'Enviado','sii_send_ident':respuesta_dict['RECEPCIONDTE']['TRACKID']})
         return retorno
 
-    @api.multi
+    # @api.multi
     def get_xml_file(self):
         return {
             'type' : 'ir.actions.act_url',
@@ -452,7 +452,7 @@ version="1.0">
             states={'draft': [('readonly', False)]},
         )
 
-    @api.multi
+    # @api.multi
     def validar_libro(self):
         self._crear_libro()
         return self.write({'state': 'NoEnviado'})
@@ -605,7 +605,7 @@ version="1.0">
             'libro')
         return envio_dte, doc_id
 
-    @api.multi
+    # @api.multi
     def do_dte_send_book(self):
         company_id = self.company_id
         envio_dte, doc_id = self._crear_libro()
@@ -659,7 +659,7 @@ version="1.0">
         elif resp['SII:RESPUESTA']['SII:RESP_HDR']['ESTADO'] == "RCT":
             self.state = "Rechazado"
 
-    @api.multi
+    # @api.multi
     def ask_for_dte_status(self):
         try:
             signature_d = self.get_digital_signature_pem(

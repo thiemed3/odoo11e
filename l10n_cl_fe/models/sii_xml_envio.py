@@ -106,7 +106,7 @@ class SIIXMLEnvio(models.Model):
             states={'draft': [('readonly', False)]},
         )
 
-    @api.multi
+    # @api.multi
     def name_get(self):
         result = []
         for r in self:

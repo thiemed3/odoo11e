@@ -14,7 +14,7 @@ rate 1.')
     rounding = fields.Float(string='Rounding Factor', default=0.01, 
                             digits=dp.get_precision('Currency'))
     
-    @api.multi
+    # @api.multi
     def _compute_current_rate(self):
         date = self._context.get('date') or fields.Datetime.now()
         company_id = self._context.get(

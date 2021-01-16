@@ -12,7 +12,7 @@ from odoo.tools.translate import _
 class HrPayslipAnalytic(models.Model):
     _inherit = 'hr.payslip'
 
-    @api.multi
+    # @api.multi
     def action_payslip_done(self):
         precision = self.env['decimal.precision'].precision_get('Payroll')
 

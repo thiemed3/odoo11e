@@ -36,7 +36,7 @@ class AccountPayment(models.Model):
         readonly=True,
     )
 
-    @api.multi
+    # @api.multi
     @api.depends('amount', 'currency_id', 'company_id.currency_id')
     def _compute_amount_company_currency(self):
         for rec in self:
@@ -57,7 +57,7 @@ class AccountPayment(models.Model):
                 sign = -1.0
             rec.amount_company_currency = amount_company_currency * sign
 
-    @api.multi
+    # @api.multi
     @api.onchange('payment_type_copy')
     def _inverse_payment_type_copy(self):
         for rec in self:
@@ -65,7 +65,7 @@ class AccountPayment(models.Model):
             rec.payment_type = (
                 rec.payment_type_copy and rec.payment_type_copy or 'transfer')
 
-    @api.multi
+    # @api.multi
     @api.depends('payment_type')
     def _compute_payment_type_copy(self):
         for rec in self:
@@ -73,7 +73,7 @@ class AccountPayment(models.Model):
                 continue
             rec.payment_type_copy = rec.payment_type
 
-    @api.multi
+    # @api.multi
     def get_journals_domain(self):
         domain = super(AccountPayment, self).get_journals_domain()
         if self.payment_group_company_id:
@@ -81,7 +81,7 @@ class AccountPayment(models.Model):
                 ('company_id', '=', self.payment_group_company_id.id))
         return domain
 
-    @api.multi
+    # @api.multi
     @api.onchange('payment_type')
     def _onchange_payment_type(self):
         """
@@ -90,7 +90,7 @@ class AccountPayment(models.Model):
         if not self._context.get('payment_group'):
             return super(AccountPayment, self)._onchange_payment_type()
 
-    @api.multi
+    # @api.multi
     @api.constrains('payment_group_id', 'payment_type')
     def check_payment_group(self):
         # TODO check this
@@ -111,7 +111,7 @@ class AccountPayment(models.Model):
               #      raise ValidationError(_(
                #         'Payments must be created from payments groups'))
 
-    @api.multi
+    # @api.multi
     @api.depends('invoice_ids', 'payment_type', 'partner_type', 'partner_id')
     def _compute_destination_account_id(self):
         """
@@ -129,7 +129,7 @@ class AccountPayment(models.Model):
             else:
                 super(AccountPayment, rec)._compute_destination_account_id()
 
-    @api.multi
+    # @api.multi
     def show_details(self):
         """
         Metodo para mostrar form editable de payment, principalmente para ser

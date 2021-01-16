@@ -11,8 +11,8 @@
     'author': 'Konos',
     'website': 'http://www.konos.cl',
     'depends': ['account'],
-    'data': ["views/bank_statement.xml"
-             ],
+    # 'data': ["views/bank_statement.xml"
+            #  ],
 	'qweb': [
 		],
     'demo': [],

@@ -19,8 +19,8 @@
         "web",
     ],
     "data": [
-        "security/ir.model.access.csv",
-        "views/paperformat.xml",
+        # "security/ir.model.access.csv",
+        # "views/paperformat.xml",
     ],
     "installable": True,
     "auto_install": False,

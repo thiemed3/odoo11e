@@ -36,7 +36,7 @@ from odoo import api, fields, models, tools, _
 class hr_payslip_employees(models.TransientModel):
     _inherit = 'hr.payslip.employees'
 
-    @api.multi
+    # @api.multi
     def compute_sheet(self):
         indicadores_id = False
         if self.env.context.get('active_id'):

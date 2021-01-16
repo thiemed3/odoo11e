@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 class stockpicking(models.Model):
     _inherit = 'stock.picking'
 
-    @api.multi
+    # @api.multi
     def _get_reference(self):
         for pick in self:
             reference =''

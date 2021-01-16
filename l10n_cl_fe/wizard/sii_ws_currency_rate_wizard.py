@@ -17,7 +17,7 @@ class sii_ws_currency_rate_wizard(models.TransientModel):
         required=True,
         )
 
-    @api.multi
+    # @api.multi
     def confirm(self):
         self.ensure_one()
         point_of_sale_id = self._context.get('active_id', False)

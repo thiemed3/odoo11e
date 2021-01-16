@@ -12,7 +12,7 @@
         'report_xlsx_helper',
     ],
     'data': [
-        'views/res_partner.xml',
+        # 'views/res_partner.xml',
     ],
     'installable': True,
 }

@@ -21,7 +21,7 @@ This module allows the user to select an account before entering a payment.
     "demo": [], 
     "data": [
         
-        "view/account_payment_advance.xml"
+        # "view/account_payment_advance.xml"
     ], 
     "test": [], 
     "js": [], 

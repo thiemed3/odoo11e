@@ -30,10 +30,10 @@
     'images': [
     ],
     'depends': [
-        'account_cancel'
+        # 'account_cancel'
     ],
     'data': [
-        'account_invoice_view.xml',
+        # 'account_invoice_view.xml',
     ],
     'demo': [
     ],

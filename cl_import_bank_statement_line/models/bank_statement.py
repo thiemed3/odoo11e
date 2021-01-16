@@ -44,7 +44,7 @@ class account_bank_statement_wizard(models.TransientModel):
     bank_opt = fields.Selection([('santander','Santander'),('estado','Banco Estado'),('chile','Banco de Chile'),('itau','Banco Itau')])
 
 
-    @api.multi
+    # @api.multi
     def import_file(self):
         #if not file:
         #    raise Warning('Please Select File')
@@ -190,7 +190,7 @@ class account_bank_statement_wizard(models.TransientModel):
         self.env['account.bank.statement'].browse(self._context.get('active_id'))._end_balance()
         return res
 #
-    @api.multi
+    # @api.multi
     def _create_statement_lines(self,val):
         partner_id = self._find_partner(val.get('partner'))
         if not val.get('date'):

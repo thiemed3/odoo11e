@@ -18,7 +18,7 @@ class ResCurrency(models.Model):
             string="Abreviatura",
         )
 
-    @api.multi
+    # @api.multi
     def round(self, amount):
         """Return ``amount`` rounded  according to ``self``'s rounding rules.
 

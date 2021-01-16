@@ -21,7 +21,7 @@ Account Centralization.
   """,
     'active': True,
     'data': [
-        'views/account_centralized_export.xml',
+        # 'views/account_centralized_export.xml',
     ],
     'installable': True,
     'application': True,

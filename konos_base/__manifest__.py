@@ -12,7 +12,7 @@
         'base_setup'
     ],
     'data': [
-        'res_config_view.xml',
+        # 'res_config_view.xml',
     ],
     'installable': True,
     'auto_install': True,

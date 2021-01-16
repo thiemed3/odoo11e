@@ -66,7 +66,7 @@ class WizardExportCsvPrevired(models.TransientModel):
                     'target':'new'
                     }
 
-    @api.multi
+    # @api.multi
     def show_view(self, name):
         search_ids = self.env['wizard.export.csv.previred'].search([])
         last_id = search_ids and max(search_ids)        
@@ -264,7 +264,7 @@ class WizardExportCsvPrevired(models.TransientModel):
             pass
         return cadena
     
-    @api.multi
+    # @api.multi
     def action_generate_csv(self):
         employee_model = self.env['hr.employee']
         payslip_model = self.env['hr.payslip']

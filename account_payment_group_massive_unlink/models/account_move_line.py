@@ -5,7 +5,7 @@ from odoo.tools.translate import _
 class AccountPaymentGroup(models.Model):
     _inherit = "account.payment.group"
     
-    @api.one
+    # # @api.one
     @api.model
     def unlink_selected(self):
         list_ids = []

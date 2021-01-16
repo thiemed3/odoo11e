@@ -17,8 +17,8 @@
         "web",
     ],
     "data": [
-        "views/report_xml_templates.xml",
-        "views/webclient_templates.xml",
+        # "views/report_xml_templates.xml",
+        # "views/webclient_templates.xml",
     ],
     "demo": [
         "demo/report.xml",

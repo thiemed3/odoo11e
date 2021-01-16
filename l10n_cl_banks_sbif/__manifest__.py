@@ -34,8 +34,8 @@ Update Chilean Banks and add their Official codes, according to SBIFs codes
     'name': u'Chile - Bancos con codificación oficial de SBIF',
     'test': [],
     'data': [
-        'data/res.bank.csv',
-        'views/res_bank_sbif.xml'
+        # 'data/res.bank.csv',
+        # 'views/res_bank_sbif.xml'
     ],
     'version': '12.0.1.0.1',
 }

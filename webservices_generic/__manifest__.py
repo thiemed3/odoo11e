@@ -31,10 +31,10 @@
         'python': ['urllib3', 'pysftp']
     },
     'data': [
-        'views/ws_servers.xml',
-        # 'data/web.services.xml',
-        'data/webservices.server.csv',
-        'security/ir.model.access.csv',
+        # 'views/ws_servers.xml',
+        # # 'data/web.services.xml',
+        # 'data/webservices.server.csv',
+        # 'security/ir.model.access.csv',
     ],
     'license': 'AGPL-3',
     'installable': True,

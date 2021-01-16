@@ -15,7 +15,7 @@
         "bin": [],
     },
     "depends": [
-        "account_cancel",
+        # "account_cancel",
         "account_financial_amount",
         #"account_payment_fix",  # for fixes related to domains on payments
         # "account",
@@ -23,13 +23,13 @@
     "data": [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'wizards/account_payment_group_invoice_wizard_view.xml',
+        # 'wizards/account_payment_group_invoice_wizard_view.xml',
         #'wizards/res_config_view.xml',
-        'views/account_payment_view.xml',
-        'views/account_move_line_view.xml',
-        'views/account_payment_group_view.xml',
-        'views/account_invoice_view.xml',
-        'views/account_journal_dashboard_view.xml',
+        # 'views/account_payment_view.xml',
+        # 'views/account_move_line_view.xml',
+        # 'views/account_payment_group_view.xml',
+        # 'views/account_invoice_view.xml',
+        # 'views/account_journal_dashboard_view.xml',
         #'views/res_config_view.xml',
         # "views/assets.xml",
         # "views/report_name.xml",

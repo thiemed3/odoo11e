@@ -13,7 +13,7 @@ Reportes de documentos fiscales adaptados a las normativas chilenas.
         'l10n_cl_fe',
     ],
     'data': [
-        'views/report_invoice.xml',
+        # 'views/report_invoice.xml',
     ],
     'installable': True,
     'auto_install': False,

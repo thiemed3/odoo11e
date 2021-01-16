@@ -51,7 +51,7 @@ class as_facturas(models.TransientModel):
                         inv.padding = str(inv.num)
 
                     inv.name_new = nuevo
-    @api.multi
+    # @api.multi
     def modificar_factura(self):
         for inv in self:
             factura = self.env['account.invoice'].search([('number', '=', inv.name_new),('state', '!=', 'cancel')])

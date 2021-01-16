@@ -31,7 +31,7 @@ class HrEmployee(models.Model):
 
         return " ".join(names)
 
-    @api.multi
+    # @api.multi
     @api.onchange('firstname', 'mothers_name', 'middle_name', 'last_name')
     def get_name(self):
         for employee in self:

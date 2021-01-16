@@ -13,8 +13,8 @@
     'website': 'http://www.akretion.com',
     'depends': ['stock'],
     'data': [
-        'views/product_product_views.xml',
-        'views/stock_location_views.xml',
+        # 'views/product_product_views.xml',
+        # 'views/stock_location_views.xml',
     ],
     'installable': True,
 }

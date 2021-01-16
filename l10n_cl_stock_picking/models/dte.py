@@ -192,7 +192,7 @@ version="1.0">
             'dte_resolution_number': comp_id.dte_resolution_number}
         return resolution_data
 
-    @api.multi
+    # @api.multi
     def get_xml_file(self):
         return {
             'type' : 'ir.actions.act_url',
@@ -299,7 +299,7 @@ version="1.0">
             c += 1
         return cadena
 
-    @api.multi
+    # @api.multi
     def action_done(self):
         res = super(stock_picking, self).action_done()
         for s in self:
@@ -322,7 +322,7 @@ version="1.0">
                                             })
         return res
 
-    @api.multi
+    # @api.multi
     def do_dte_send_picking(self, n_atencion=None):
         ids = []
         if not isinstance(n_atencion, string_types):
@@ -452,7 +452,7 @@ version="1.0">
         Encabezado['Totales'] = self._totales(MntExe, no_product)
         return Encabezado
 
-    @api.multi
+    # @api.multi
     def get_barcode(self, no_product=False):
         partner_id = self.partner_id or self.company_id.partner_id
         ted = False
@@ -681,7 +681,7 @@ version="1.0">
                 'user_id': self.env.uid,
                 }
 
-    @api.multi
+    # @api.multi
     def do_dte_send(self, n_atencion=False):
         if not self[0].sii_xml_request or self[0].sii_result in ['Rechazado'] or (self[0].company_id.dte_service_provider == 'SIICERT' and self[0].sii_xml_request.state in ['', 'NoEnviado']):
             for r in self:
@@ -732,7 +732,7 @@ version="1.0">
                                       total,token)
             r.sii_message = respuesta
 
-    @api.multi
+    # @api.multi
     def ask_for_dte_status(self):
         for r in self:
             if not r.sii_xml_request and not r.sii_xml_request.sii_send_ident:

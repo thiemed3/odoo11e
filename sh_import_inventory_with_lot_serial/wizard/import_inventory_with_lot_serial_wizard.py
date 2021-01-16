@@ -39,7 +39,7 @@ class import_inventory_with_lot_serial_wizard(models.TransientModel):
     
     is_create_lot = fields.Boolean(string="Create Lot/Serial Number if never exist?")
     
-    @api.multi
+    # @api.multi
     def show_success_msg(self,counter,skipped_line_no):
         
         #to close the current active wizard        
@@ -70,7 +70,7 @@ class import_inventory_with_lot_serial_wizard(models.TransientModel):
             }   
 
     
-    @api.multi
+    # @api.multi
     def import_inventory_with_lot_serial_apply(self):
         stock_inventory_obj = self.env['stock.inventory']
         stock_inventory_line_obj = self.env['stock.inventory.line']

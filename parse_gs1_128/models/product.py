@@ -36,7 +36,7 @@ class ProductTemplate(models.Model):
         
         return result
 
-    @api.multi
+    # @api.multi
     def write(self, vals):
         if self.env.context.get('finish', False) == True:
             return super(ProductTemplate, self).write(vals)
@@ -139,7 +139,7 @@ class ProductProduct(models.Model):
         
         return result
     
-    @api.multi
+    # @api.multi
     def write(self, vals):
         if 'gs1_128_code' in vals:
             result = tools_parse.parse_gs1_128(vals['gs1_128_code'])

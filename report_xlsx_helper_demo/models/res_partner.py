@@ -7,7 +7,7 @@ from odoo import api, models
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    @api.multi
+    # @api.multi
     def export_xls(self):
         module = __name__.split('addons.')[1].split('.')[0]
         report_name = '{}.partner_export_xlsx'.format(module)

@@ -16,7 +16,7 @@ class StockPicking(models.Model):
     _name = 'stock.picking'
     _inherit = ['stock.picking', 'barcodes.barcode_events_mixin']
 
-    @api.multi
+    # @api.multi
     def get_po_to_split_from_barcode(self, barcode):
         """ Returns the lot wizard's action for the move line matching
         the barcode. This method is intended to be called by the
@@ -255,7 +255,7 @@ class StockPicking(models.Model):
         
         return result
         
-    @api.multi
+    # @api.multi
     def write(self, vals):
         result = super(StockPicking, self).write(vals)
         
@@ -267,7 +267,7 @@ class StockPicking(models.Model):
         return result
     
     """
-    @api.multi
+    # @api.multi
     def change_move_line_ids(self):
         all_records = []
         records_getted = []

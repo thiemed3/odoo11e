@@ -110,8 +110,8 @@ entregados por parte del deudor de la factura {4}, RUT {5}, de acuerdo a lo esta
                 self.format_vat(self.company_id.partner_id.vat),
                 self.cesionario_id.name,
                 self.format_vat(self.cesionario_id.vat),
-                self.commercial_partner_id.name,
-                self.format_vat(self.commercial_partner_id.vat),
+                # self.commercial_partner_id.name,
+                # self.format_vat(self.commercial_partner_id.vat),
             )
             self.declaracion_jurada = declaracion_jurada
 
@@ -145,7 +145,7 @@ entregados por parte del deudor de la factura {4}, RUT {5}, de acuerdo a lo esta
 </DocumentoAEC>
 '''.format(
             self.format_vat(self.company_id.vat),
-            self.format_vat(self.cesionario_id.commercial_partner_id.vat),
+            # self.format_vat(self.cesionario_id.commercial_partner_id.vat),
             self.env.user.name,
             self.env.user.phone or self.company_id.phone,
             self.env.user.email or self.company_id.email,
@@ -215,7 +215,7 @@ version="1.0">
             return xml
         return super(CesionDTE, self)._append_sig(type, msg, message)
 
-    @api.multi
+    # @api.multi
     def get_cesion_xml_file(self):
         url_path = '/download/xml/cesion/%s' % (self.id)
         return {
@@ -237,9 +237,9 @@ version="1.0">
         IdDoc = collections.OrderedDict()
         IdDoc['TipoDTE'] = self.sii_document_class_id.sii_code
         IdDoc['RUTEmisor'] = self.format_vat(self.company_id.vat)
-        if not self.partner_id.commercial_partner_id.vat:
-            raise UserError("Debe Ingresar RUT Receptor")
-        IdDoc['RUTReceptor'] = self.format_vat(self.partner_id.commercial_partner_id.vat)
+        # if not self.partner_id.commercial_partner_id.vat:
+            # raise UserError("Debe Ingresar RUT Receptor")
+        # IdDoc['RUTReceptor'] = self.format_vat(self.partner_id.commercial_partner_id.vat)
         IdDoc['Folio'] = self.get_folio()
         IdDoc['FchEmis'] = self.date_invoice
         IdDoc['MntTotal'] = self.currency_id.round(self.amount_total )
@@ -259,12 +259,12 @@ version="1.0">
 
     def _cesionario(self):
         Receptor = collections.OrderedDict()
-        if not self.cesionario_id.commercial_partner_id.vat:
+        # if not self.cesionario_id.commercial_partner_id.vat:
             raise UserError("Debe Ingresar RUT Cesionario")
-        Receptor['RUT'] = self.format_vat(self.cesionario_id.commercial_partner_id.vat)
-        Receptor['RazonSocial'] = self._acortar_str(self.cesionario_id.commercial_partner_id.name, 100)
+        # Receptor['RUT'] = self.format_vat(self.cesionario_id.commercial_partner_id.vat)
+        # Receptor['RazonSocial'] = self._acortar_str(self.cesionario_id.commercial_partner_id.name, 100)
         Receptor['Direccion'] = self._acortar_str((self.cesionario_id.street or self.cesionario_id.commercial_partner_id.street) + ' ' + (self.cesionario_id.street2 or self.cesionario_id.commercial_partner_id.street2 or ''),70)
-        Receptor['eMail'] = self.cesionario_id.commercial_partner_id.email
+        # Receptor['eMail'] = self.cesionario_id.commercial_partner_id.email
         return Receptor
 
     def _cesion_dte(self):
@@ -327,7 +327,7 @@ version="1.0">
             'user_id': self.env.uid,
         }
 
-    @api.multi
+    # @api.multi
     def validate_cesion(self):
         for inv in self.with_context(lang='es_CL'):
             inv.sii_cesion_result = 'NoEnviado'
@@ -343,7 +343,7 @@ version="1.0">
                                                 'user_id': self.env.uid,
                                                 'tipo_trabajo': 'cesion',
                                                 })
-    @api.multi
+    # @api.multi
     def cesion_dte_send(self):
         if  1== 1:#not self[0].sii_cesion_request or self[0].sii_cesion_result in ['Rechazado'] :
             for r in self:
@@ -358,7 +358,7 @@ version="1.0">
         self[0].sii_cesion_request.send_xml(post='/cgi_rtc/RTC/RTCAnotEnvio.cgi')
         return self[0].sii_cesion_request
 
-    @api.multi
+    # @api.multi
     def do_cesion_dte_send(self):
         ids = []
         for inv in self.with_context(lang='es_CL'):
@@ -462,7 +462,7 @@ version="1.0">
             sii_result = "Rechazado"
         #self.sii_cesion_result = result
 
-    @api.multi
+    # @api.multi
     def ask_for_cesion_dte_status(self):
         token = self.sii_cesion_request.get_token(self.env.user, self.company_id)
         signature_d = self.env.user.get_digital_signature(self.company_id)

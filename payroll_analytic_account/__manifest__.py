@@ -37,7 +37,7 @@ Payroll Analytic Account.
         'hr_payroll_account'
     ],
     'data': [
-        'views/hr_payroll_analytic_account_view.xml',
+        # 'views/hr_payroll_analytic_account_view.xml',
     ],
    
     'installable': True,

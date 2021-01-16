@@ -29,7 +29,7 @@
     'website': 'http://www.odoolatam.com//',
     'depends' : ['base', 'product', 'stock_barcode'],
     'data': [
-        'views/product_h_view.xml',
+        # 'views/product_h_view.xml',
     ],
     'installable': True,
     'application': True,

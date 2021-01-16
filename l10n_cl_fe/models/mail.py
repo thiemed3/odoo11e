@@ -75,7 +75,7 @@ class ProccessMail(models.Model):
     def pre_process(self):
         self.process_message(pre=True)
 
-    @api.multi
+    # @api.multi
     def process_message(self, pre=False, option=False):
         created = []
         for r in self:
@@ -162,8 +162,7 @@ class ProcessMailsDocument(models.Model):
         ],
         default='draft',
     )
-    invoice_id = fields.Many2one(
-        'account.invoice',
+    invoice_id = fields.Char(
         string="Factura",
         readonly=True,
     )
@@ -197,7 +196,7 @@ class ProcessMailsDocument(models.Model):
                               self.env.cr.dictfetchall()]):
             d.accept_document()
 
-    @api.multi
+    # @api.multi
     def accept_document(self):
         created = []
         for r in self:
@@ -219,7 +218,7 @@ class ProcessMailsDocument(models.Model):
             result['domain'] = domain
         return result
 
-    @api.multi
+    # @api.multi
     def reject_document(self):
         for r in self:
             r.state = 'rejected'

@@ -19,10 +19,10 @@ basado en plan de cuentas del Servicio de Impuestos Internos
     'license': 'AGPL-3',
     'depends': ['account'],
     'data': [
-            'views/account_tax.xml',
-            'data/l10n_cl_chart_of_account_data.xml',
-            'data/account_tax_data.xml',
-            'data/account_chart_template_data.yml',
-            'data/account_journal.xml',
+            # 'views/account_tax.xml',
+            # 'data/l10n_cl_chart_of_account_data.xml',
+            # 'data/account_tax_data.xml',
+            # 'data/account_chart_template_data.yml',
+            # 'data/account_journal.xml',
     ],
 }

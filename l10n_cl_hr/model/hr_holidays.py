@@ -33,7 +33,7 @@ class HRHolidays(models.Model):
 
 
     #Función Original: Agregamos el recálculo al cambiar holiday_status_id
-    @api.multi
+    # @api.multi
     @api.depends('number_of_days_temp', 'type', 'holiday_status_id')
     def _compute_number_of_days(self):
         for holiday in self:

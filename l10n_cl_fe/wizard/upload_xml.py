@@ -77,7 +77,7 @@ class UploadXMLWizard(models.TransientModel):
         if self.xml_file:
             self.num_dtes = len(self._get_dtes())
 
-    @api.multi
+    # @api.multi
     def confirm(self, ret=False):
         context = dict(self._context or {})
         active_id = context.get('active_id', []) or []
@@ -791,19 +791,19 @@ class UploadXMLWizard(models.TransientModel):
             })
         return invoice
 
-    def _get_journal(self, sii_code, company_id):
-        type = 'purchase'
-        if self.type == 'ventas':
-            type = 'sale'
-        journal_sii = self.env['account.journal.sii_document_class'].search(
-            [
-                ('sii_document_class_id.sii_code', '=', sii_code),
-                ('journal_id.type', '=', type),
-                ('journal_id.company_id', '=', company_id.id)
-            ],
-            limit=1,
-        )
-        return journal_sii
+    # def _get_journal(self, sii_code, company_id):
+    #     type = 'purchase'
+    #     if self.type == 'ventas':
+    #         type = 'sale'
+    #     journal_sii = self.env['account.journal.sii_document_class'].search(
+    #         [
+    #             ('sii_document_class_id.sii_code', '=', sii_code),
+    #             ('journal_id.type', '=', type),
+    #             ('journal_id.company_id', '=', company_id.id)
+    #         ],
+    #         limit=1,
+    #     )
+    #     return journal_sii
 
     def _get_data(self, documento, company_id):
         string = etree.tostring(documento)

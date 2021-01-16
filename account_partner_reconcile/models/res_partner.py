@@ -8,7 +8,7 @@ from odoo import api, models
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    @api.multi
+    # @api.multi
     def action_open_reconcile(self):
         # Open reconciliation view for customers
         accounts = self.env['account.account']

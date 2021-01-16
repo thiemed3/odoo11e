@@ -400,7 +400,7 @@ class Libro(models.Model):
                 lines.append([0, 0, i])
             self.impuestos = lines
 
-    @api.multi
+    # @api.multi
     def unlink(self):
         for libro in self:
             if libro.state not in ('draft', 'cancel'):
@@ -600,7 +600,7 @@ version="1.0">
             'dte_resolution_number': comp_id.dte_resolution_number}
         return resolution_data
 
-    @api.multi
+    # @api.multi
     def send_xml_file(self, envio_dte=None, file_name="envio",company_id=False):
     # Solo enviaremos las Boletas
         if self.tipo_operacion not in ['COMPRA','VENTA']:
@@ -651,7 +651,7 @@ version="1.0">
         else:
             return {'sii_xml_response': '', 'sii_result': 'Proceso','sii_send_ident':''}
 
-    @api.multi
+    # @api.multi
     def get_xml_file(self):
         return {
             'type' : 'ir.actions.act_url',
@@ -677,7 +677,7 @@ version="1.0">
         if self.periodo_tributario:
             self.name += " " + self.periodo_tributario
 
-    @api.multi
+    # @api.multi
     def validar_libro(self):
         #self._validar()
         #Solo vamos a dejar todos los moveids como enviados
@@ -1264,7 +1264,7 @@ version="1.0">
         self.sii_xml_request = envio_dte
         return envio_dte, doc_id
 
-    @api.multi
+    # @api.multi
     def do_dte_send_book(self):
         if self.state not in ['NoEnviado', 'Rechazado']:
             raise UserError("El Libro  ya ha sido enviado")
@@ -1297,7 +1297,7 @@ version="1.0">
             status = {'warning':{'title':_('Error RCT'), 'message': _(resp['SII:RESPUESTA']['SII:RESP_HDR']['GLOSA'])}}
         return status
 
-    @api.multi
+    # @api.multi
     def ask_for_dte_status(self):
         xml_response = xmltodict.parse(self.sii_xml_response)
         if self.state == 'Enviado':

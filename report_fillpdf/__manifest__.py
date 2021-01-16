@@ -23,7 +23,7 @@
         'base', 'web',
     ],
     'data': [
-        'views/webclient_templates.xml',
+        # 'views/webclient_templates.xml',
     ],
     'demo': [
         'demo/report.xml',

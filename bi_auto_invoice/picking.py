@@ -78,7 +78,7 @@ class account_invoice(models.Model):
 class stock_picking(models.Model):
     _inherit = 'stock.picking'
 
-    @api.multi
+    # @api.multi
     def action_done(self):
         """Changes picking state to done by processing the Stock Moves of the Picking
 
@@ -193,7 +193,7 @@ class stock_picking(models.Model):
         return True
 
     @api.depends('state')
-    @api.one
+    # # @api.one
     def _get_invoiced(self):
         for order in self:
             invoice_ids = self.env['account.invoice'].search([('picking_id','=',order.id)])
@@ -202,7 +202,7 @@ class stock_picking(models.Model):
 
     invoice_count = fields.Integer(string='# of Invoices', compute='_get_invoiced',  )
 
-    @api.multi
+    # @api.multi
     def button_view_invoice(self):
         mod_obj = self.env['ir.model.data']
         act_obj = self.env['ir.actions.act_window']
@@ -219,7 +219,7 @@ class stock_picking(models.Model):
             result['res_id'] = work_order_id[0].id or False
         return result
 
-    @api.multi
+    # @api.multi
     def do_transfer(self):
         """ If no pack operation, we do simple action_done of the picking.
         Otherwise, do the pack operations. """

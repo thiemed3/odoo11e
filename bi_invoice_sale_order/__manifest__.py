@@ -15,8 +15,8 @@
     #'currency': "EUR",
     'website': 'http://www.odoolatam.com',
     'depends': ['sale','purchase','stock','l10n_cl_sale_order_references'],
-    'data': ['picking_view.xml'
-    ],
+    # 'data': ['picking_view.xml'
+    # ],
     'demo': [],
     'js': [],
     'qweb': [],

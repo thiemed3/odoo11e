@@ -19,7 +19,7 @@ class masive_send_dte_wizard(models.TransientModel):
 
     numero_atencion = fields.Char(string="Número de atención")
 
-    @api.multi
+    # @api.multi
     def confirm(self):
         self.documentos.do_dte_send_picking(self.numero_atencion)
         return UserError("Enviado")

@@ -7,7 +7,7 @@ from odoo.tools.translate import _
 class AccountJournal(models.Model):
     _inherit = "account.journal"
 
-    @api.multi
+    # @api.multi
     def open_payments_action(self, payment_type):
         if payment_type == 'transfer':
             ctx = self._context.copy()

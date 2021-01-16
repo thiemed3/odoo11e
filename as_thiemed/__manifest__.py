@@ -17,12 +17,12 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'wizard/as_kardex_productos_wiz.xml',
-        'wizard/as_cambiador_factura.xml',
-        'views/as_res_config.xml',
-        'views/as_stock_picking.xml',
-        'views/as_production_lot_tree.xml',
-        'views/as_pricelist_item.xml',
+        # 'wizard/as_kardex_productos_wiz.xml',
+        # 'wizard/as_cambiador_factura.xml',
+        # 'views/as_res_config.xml',
+        # 'views/as_stock_picking.xml',
+        # 'views/as_production_lot_tree.xml',
+        # 'views/as_pricelist_item.xml',
     ],
     'qweb': [
     ],

@@ -18,8 +18,8 @@
         'web',
     ],
     "data": [
-        'security/groups.xml',
-        'views/web_export_view_view.xml',
+        # 'security/groups.xml',
+        # 'views/web_export_view_view.xml',
     ],
     'qweb': [
         "static/src/xml/web_export_view_template.xml",

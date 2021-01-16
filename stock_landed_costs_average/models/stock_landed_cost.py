@@ -33,7 +33,7 @@ class LandedCost(models.Model):
             raise UserError(_('The selected picking does not contain any move that would be impacted by landed costs. Landed costs are only possible for products configured in real time valuation with real price costing method. Please make sure it is the case, or you selected the correct picking'))
         return lines
 
-    @api.multi
+    # @api.multi
     def button_validate(self):
         """
         Override to directly set new standard_price on product if average costed.

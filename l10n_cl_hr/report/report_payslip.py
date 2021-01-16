@@ -14,12 +14,12 @@ class payslip_report(models.AbstractModel):
 #        })
         return payslips
 
-    @api.multi
+    # @api.multi
     def convert(self,amount, cur):
         amt_en = cur.amount_to_text(amount)
         return amt_en
 
-    @api.multi
+    # @api.multi
     def get_payslip_lines(self):
         payslip_line = self.env['hr.payslip.line']
         res = []
@@ -31,7 +31,7 @@ class payslip_report(models.AbstractModel):
             res = payslip_line.browse(ids)
         return res
 
-    @api.multi
+    # @api.multi
     def get_leave(self, obj):
           res = []
           ids = []

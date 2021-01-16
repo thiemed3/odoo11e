@@ -50,7 +50,7 @@ class ValidarDTEWizard(models.TransientModel):
         string="Opción",
     )
 
-    @api.multi
+    # @api.multi
     def confirm(self):
         #if self.action == 'validate':
         self.do_receipt()
@@ -310,7 +310,7 @@ class ValidarDTEWizard(models.TransientModel):
         caratula['TmstFirmaEnv'] = self.env['account.invoice'].time_stamp()
         return caratula
 
-    @api.multi
+    # @api.multi
     def do_receipt(self):
         message = ""
         for inv in self.invoice_ids:

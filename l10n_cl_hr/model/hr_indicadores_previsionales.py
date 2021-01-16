@@ -170,7 +170,7 @@ class hr_indicadores_previsionales(models.Model):
         'IPC',  required=True, help="Indice de Precios al Consumidor (IPC)")
 
 
-    @api.multi
+    # @api.multi
     @api.onchange('month')
     def get_name(self):
         self.name = str(self.month).replace('10', 'Octubre').replace('11', 'Noviembre').replace('12', 'Diciembre').replace('1', 'Enero').replace('2', 'Febrero').replace('3', 'Marzo').replace('4', 'Abril').replace('5', 'Mayo').replace('6', 'Junio').replace('7', 'Julio').replace('8', 'Agosto').replace('9', 'Septiembre') + " " + str(self.year)
@@ -211,7 +211,7 @@ class hr_indicadores_previsionales(models.Model):
 
 
 
-    @api.one
+    # # @api.one
     def update_document(self):
         self.update_date = datetime.today()
         try:

@@ -67,9 +67,6 @@ class StockPicking(models.Model):
         )
     activity_description = fields.Many2one(
             'sii.activity.description',
-            string='Giro',
-            related="partner_id.commercial_partner_id.activity_description",
-            readonly=True, states={'assigned':[('readonly',False)],'draft':[('readonly',False)]},
         )
     sii_document_number = fields.Char(
             string='Document Number',
